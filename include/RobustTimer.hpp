@@ -1,17 +1,9 @@
-#include <iostream>
 #include <functional>
 #include <stdexcept>
-#include <signal.h>
 #include <time.h>
 #include <atomic>
-#include <semaphore.h>
-#include <thread>
-#include <chrono>
 #include <map>
 #include <mutex>
-
-std::map<int, RobustTimer*> RobustTimer::signal_map_;
-std::mutex RobustTimer::signal_mutex_;
 
 class RobustTimer {
 public:
@@ -40,3 +32,5 @@ private:
     void disarmTimer();
 };
 
+std::map<int, RobustTimer*> RobustTimer::signal_map_;
+std::mutex RobustTimer::signal_mutex_;
